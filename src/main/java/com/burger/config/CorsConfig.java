@@ -12,7 +12,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://strong-paletas-b4b962.netlify.app") // Coloque aqui a URL do seu aplicativo Vue.js
+                .allowedOrigins("http://localhost:8080") // Coloque aqui a URL do seu aplicativo Vue.js
                 .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true)

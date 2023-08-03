@@ -27,7 +27,7 @@ public class IngredientesController {
         return ResponseEntity.ok("Ingredientes criados com sucesso!");
     }
     
-    @CrossOrigin(origins = "https://strong-paletas-b4b962.netlify.app")
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/ingredientes")
     public ResponseEntity<List<IngredientesJson>> getAllIngredientes() {
         List<IngredientesJson> ingredientesList = ingredientesService.buscarTodosIngredientes();

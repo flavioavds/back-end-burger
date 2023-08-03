@@ -29,35 +29,35 @@ public class BurgerController {
         this.burgerService = burgerService;
     }
 
-    @CrossOrigin(origins = "https://strong-paletas-b4b962.netlify.app/")
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping
     public ResponseEntity<BurgerDTOResponse> save(@RequestBody BurgerDTORequest dto) {
         BurgerDTOResponse response = burgerService.save(dto);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "https://strong-paletas-b4b962.netlify.app/")
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping
     public ResponseEntity<List<BurgerDTOResponse>> findAll() {
         List<BurgerDTOResponse> response = burgerService.findAll();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "https://strong-paletas-b4b962.netlify.app/")
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/{id}")
     public ResponseEntity<BurgerDTOResponse> findById(@PathVariable UUID id) {
         BurgerDTOResponse response = burgerService.findById(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "https://strong-paletas-b4b962.netlify.app/")
+    @CrossOrigin(origins = "http://localhost:8080")
     @PatchMapping("/{id}")
     public ResponseEntity<BurgerDTOResponse> update(@PathVariable UUID id, @RequestBody BurgerDTORequest dto) {
         BurgerDTOResponse response = burgerService.update(id, dto);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "https://strong-paletas-b4b962.netlify.app/")
+    @CrossOrigin(origins = "http://localhost:8080")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable UUID id) {
         String message = burgerService.delete(id);
