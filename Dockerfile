@@ -4,7 +4,7 @@ FROM openjdk:17
 
 # Define the JAR_FILE argument that will be passed during build
 # Removed the 'out' path as it is not necessary
-# Fixed typo in the ARG command, removed the space between ARG and the JAR_FILE variable name
+# Fixed typo, removed space between ARG and JAR_FILE variable name
 # Changed the name of the JAR_FILE from 'the J JARAR_FILE' to 'JAR_FILE'
 ARG JAR_FILE=out/artifacts/demo_jar.jar
 
@@ -17,6 +17,6 @@ COPY $JAR_FILE app.jar
 EXPOSE 8080
 
 # Set the entrypoint command to run the Java application using the app.jar file
-# Added the -Djava.security.egd flag to improve startup performance and avoid issues with /dev/urandom
+# Added the -Djava.security.deg flag to improve startup performance and avoid issues with /dev/urandom
 # Fixed typo, added space after ENTRYPOINT
 ENTRYPOINT java -Djava.security.egd=file:/dev/./urandom -jar /app.jar
