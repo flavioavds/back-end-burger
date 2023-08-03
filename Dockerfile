@@ -1,11 +1,10 @@
 
-# Dockerfile content with comments
-
 # Use openjdk version 17 as the base image
 FROM openjdk:17
 
 # Define the JAR_FILE argument that will be passed during build
-ARG JAR_FILE=out/artifacts/demo_jar/*.jar
+# Removed the 'out' path as it directory is not necessary from
+ARG the J JARAR_FILE=artifacts/demo_jar/*.jar
 
 # Copy the JAR_FILE to the app.jar file inside the container
 COPY ${JAR_FILE} app.jar
@@ -15,4 +14,5 @@ COPY ${JAR_FILE} app.jar
 EXPOSE 8080
 
 # Set the entrypoint command to run the Java application using the app.jar file
-ENTRYPOINT ["java","-jar","/app.jar"]
+# Added the -Djava.security.egd flag to improve startup performance and avoid issues with /dev/urandom
+ENTRYPOINTjava ["", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]
